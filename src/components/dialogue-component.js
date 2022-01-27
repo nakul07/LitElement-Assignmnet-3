@@ -19,6 +19,7 @@ export class DialogComponent extends LitElement {
     return {
       options: { type: Array },
       heading: { type: String },
+      fieldItems: { type: Array },
     };
   }
 
@@ -28,8 +29,9 @@ export class DialogComponent extends LitElement {
   constructor() {
     super();
 
-    this.options = [];
     this.heading = '';
+    this.options = [];
+    this.fieldItems = [];
   }
 
   /**
@@ -86,24 +88,29 @@ export class DialogComponent extends LitElement {
     return html`<main>
       <h1>${this.heading}</h1>
       <div>
-        <paper-input label="Name" value="Binding Group 1"></paper-input>
         <paper-input
-          class="input-right"
-          label="Name"
-          value="Binding Group 1"
+          label="${this.fieldItems[0].label}"
+          value="${this.fieldItems[0].value}"
         ></paper-input>
-        <paper-input label="Name" value="Binding Group 1"></paper-input>
         <paper-input
           class="input-right"
-          label="Name"
-          value="Binding Group 1"
+          label="${this.fieldItems[1].label}"
+          value="${this.fieldItems[1].value}"
+        ></paper-input>
+        <paper-input
+          label="${this.fieldItems[2].label}"
+          value="${this.fieldItems[2].value}"
+        ></paper-input>
+        <paper-input
+          class="input-right"
+          label="${this.fieldItems[3].label}"
+          value="${this.fieldItems[3].value}"
         ></paper-input>
         <vaadin-date-picker label="Date" placeholder="12/5/2019">
         </vaadin-date-picker>
       </div>
       <options-components .options=${this.options}></options-components>
-
-      <paper-textarea label="Comments" value=" " rows="3"></paper-textarea>
+      <paper-textarea label="Comments" value="" rows="3"></paper-textarea>
       <paper-button class="submit" raised>Create</paper-button>
       <paper-button noink>Cancel</paper-button>
     </main>`;

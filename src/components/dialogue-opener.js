@@ -29,17 +29,17 @@ export class DialogOpener extends LitElement {
     this.options = [
       {
         value: 1,
-        label: 'Item 1',
+        label: 'BRD2 Affinity_High_Affinity',
         checked: true,
       },
       {
         value: 2,
-        label: 'Item 2',
+        label: 'BRD2 AMP_PNP_competitive',
         checked: false,
       },
       {
         value: 3,
-        label: 'Item 3',
+        label: 'BRD2 NRX-0459676 non-competitive',
         checked: true,
       },
       {
@@ -47,6 +47,12 @@ export class DialogOpener extends LitElement {
         label: 'Item 4',
         checked: false,
       },
+    ];
+    this.fieldItems = [
+      { label: 'Name', value: 'Binding Group 1' },
+      { label: 'Ligands Promoted', value: '24' },
+      { label: 'Description', value: 'Promising Ligands' },
+      { label: 'Total Ligands in Binding Group', value: '100' },
     ];
   }
 
@@ -104,6 +110,7 @@ export class DialogOpener extends LitElement {
         <dialog-component
           .heading="${this.heading}"
           .options="${this.options}"
+          .fieldItems="${this.fieldItems}"
         ></dialog-component>
       </paper-dialog>
     </main>`;
