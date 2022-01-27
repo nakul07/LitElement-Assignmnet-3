@@ -95,7 +95,7 @@ export class DialogComponent extends LitElement {
         <paper-input
           class="input-right"
           label="${this.fieldItems[1].label}"
-          value="${this.fieldItems[1].value}"
+          placeholder="${this.fieldItems[1].value}"
         ></paper-input>
         <paper-input
           label="${this.fieldItems[2].label}"
@@ -104,7 +104,7 @@ export class DialogComponent extends LitElement {
         <paper-input
           class="input-right"
           label="${this.fieldItems[3].label}"
-          value="${this.fieldItems[3].value}"
+          placeholder="${this.fieldItems[3].value}"
         ></paper-input>
         <vaadin-date-picker label="Date" placeholder="12/5/2019">
         </vaadin-date-picker>
