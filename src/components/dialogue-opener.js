@@ -13,9 +13,25 @@ import './dialogue-component';
  * MyApp component for filterable table.
  */
 export class DialogOpener extends LitElement {
+  /**
+   * Gets properties.
+   *
+   * @returns {Array}
+   */
   static get properties() {
     return {
+      /**
+       * Heading for the component.
+       *
+       * @type {String}
+       */
       heading: { type: String },
+
+      /**
+       * Options for the component.
+       *
+       * @type {Array}
+       */
       options: { type: Array },
     };
   }
@@ -25,6 +41,7 @@ export class DialogOpener extends LitElement {
    */
   constructor() {
     super();
+
     this.heading = 'Creating Binding Group';
     this.options = [
       {
@@ -93,9 +110,8 @@ export class DialogOpener extends LitElement {
   }
 
   /**
-   * Renders html
    *
-   * @returns {html components}
+   * @returns {TemplateResult}
    */
   render() {
     return html`<main>
@@ -117,4 +133,7 @@ export class DialogOpener extends LitElement {
   }
 }
 
+/**
+ * Defines the element `dialog-opener`.
+ */
 customElements.define('dialog-opener', DialogOpener);

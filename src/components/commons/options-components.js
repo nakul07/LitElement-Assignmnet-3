@@ -9,7 +9,10 @@ import '@vaadin/checkbox-group';
  */
 export class OptionComponents extends LitElement {
   /**
-   * Get Styles
+   * Gets style.
+   *
+   * @returns {Array}
+   *
    */
   static get styles() {
     return css`
@@ -40,13 +43,25 @@ export class OptionComponents extends LitElement {
   }
 
   /**
-   * Get properties
+   * Gets properties.
+   *
+   * @returns {Array}
    */
   static get properties() {
     return {
-      heading: { type: String },
+      /**
+       * Options for the component.
+       *
+       * @type {Array}
+       */
       options: { type: Array },
-      checked: { type: Boolean },
+
+      /**
+       * Changes checked status.
+       *
+       * @type {Function}
+       */
+      changeChecked: { type: Function },
     };
   }
 
@@ -55,13 +70,14 @@ export class OptionComponents extends LitElement {
    */
   constructor() {
     super();
+
     this.options = [];
+    this.changeChecked = () => {};
   }
 
   /**
-   * Renders html
    *
-   * @returns {Array}
+   * @returns {TemplateResult}
    */
   render() {
     return html`
@@ -78,6 +94,7 @@ export class OptionComponents extends LitElement {
             style="${styleMap(checkboxStyle)}"
             @change=${(e) => {
               items.checked = e.target.checked;
+              //this.changeChecked(items.checked, e);
             }}
           ></vaadin-checkbox>`;
         })}
@@ -86,4 +103,7 @@ export class OptionComponents extends LitElement {
   }
 }
 
+/**
+ * Defines the element `option-components`.
+ */
 customElements.define('options-components', OptionComponents);

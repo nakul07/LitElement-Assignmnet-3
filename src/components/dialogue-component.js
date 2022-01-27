@@ -12,20 +12,42 @@ import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
 import '@polymer/paper-button/paper-button.js';
 
 /**
- * MyApp component for filterable table.
+ * Dialogue component.
+ *
+ * @customElement dialogue-component
+ * @extends {LitElement}
  */
 export class DialogComponent extends LitElement {
   static get properties() {
     return {
+      /**
+       * Options for the component.
+       * 
+       * @type {Array}
+       * 
+       */
       options: { type: Array },
+
+      /**
+       * Heading for the component.
+       * 
+       * @type {String}
+       * 
+       */
       heading: { type: String },
+
+      /**
+       * Field items for the component.
+       * 
+       * @type {Array}
+       */
       fieldItems: { type: Array },
     };
   }
 
-  /**
-   * Constructor function.
-   */
+ /**
+  * Constructor function.
+  */
   constructor() {
     super();
 
@@ -80,10 +102,19 @@ export class DialogComponent extends LitElement {
   }
 
   /**
-   * Renders html
+   * Update the value of checked.
    *
-   * @returns {Array}
    */
+  // changeChecked(checked,e) {
+  //  const index = this.options.findIndex(option => option.value === e.target.value);
+  //  this.options[index+1].checked = checked;
+  //   console.log(index+1);
+  // }
+
+ /**
+  * 
+  * @returns {TemplateResult}
+  */
   render() {
     return html`<main>
       <h1>${this.heading}</h1>
@@ -109,7 +140,10 @@ export class DialogComponent extends LitElement {
         <vaadin-date-picker label="Date" placeholder="12/5/2019">
         </vaadin-date-picker>
       </div>
-      <options-components .options=${this.options}></options-components>
+      <options-components
+        .options=${this.options}
+        .changeChecked="${this.changeChecked}"
+      ></options-components>
       <paper-textarea label="Comments" value="" rows="3"></paper-textarea>
       <paper-button class="submit" raised>Create</paper-button>
       <paper-button noink>Cancel</paper-button>
@@ -117,4 +151,7 @@ export class DialogComponent extends LitElement {
   }
 }
 
+/**
+ * Defines the element `dialog-component`.
+ */
 customElements.define('dialog-component', DialogComponent);
