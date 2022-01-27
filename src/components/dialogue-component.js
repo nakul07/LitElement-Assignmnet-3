@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 import { LitElement, html, css } from 'lit';
-import './options-components';
+import './commons/options-components';
 import '@polymer/paper-dialog/paper-dialog.js';
 import '@polymer/paper-input/paper-input.js';
 import '@polymer/paper-input/paper-textarea';
