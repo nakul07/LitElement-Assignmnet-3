@@ -4,18 +4,10 @@
  * SPDX-License-Identifier: BSD-3-Clause
  */
 import { LitElement, html, css } from 'lit';
-import './components/input-fields';
-import './components/heading-components';
-import './components/options-components';
-import '@polymer/paper-input/paper-input.js';
-import '@polymer/paper-input/paper-textarea';
-import '@vaadin/vaadin-date-picker/vaadin-date-picker.js';
-import '@vaadin/checkbox';
-import '@vaadin/checkbox-group';
 import '@polymer/paper-button/paper-button.js';
 import '@polymer/paper-dialog/paper-dialog.js';
 import '@polymer/iron-icon/iron-icon.js';
-import './my-app';
+import './dialogue-component';
 
 /**
  * MyApp component for filterable table.
@@ -108,7 +100,11 @@ export class DialogOpener extends LitElement {
             <iron-icon src="../images/close.png" class="cross-icon"></iron-icon>
           </paper-button>
         </div>
-        <my-app .heading="${this.heading}" .options="${this.options}"></my-app>
+
+        <dialog-component
+          .heading="${this.heading}"
+          .options="${this.options}"
+        ></dialog-component>
       </paper-dialog>
     </main>`;
   }

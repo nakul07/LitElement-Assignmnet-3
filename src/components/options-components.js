@@ -1,5 +1,8 @@
 import { LitElement, html, css } from 'lit';
 import { styleMap } from 'lit-html/directives/style-map.js';
+import '@vaadin/checkbox';
+import '@vaadin/checkbox-group';
+
 /**
  * Options component.
  *
@@ -69,7 +72,7 @@ export class OptionComponents extends LitElement {
             backgroundColor: items.checked ? 'lightgrey' : 'white',
           };
           return html` <vaadin-checkbox
-            checked="${items.checked}"
+            ?checked="${items.checked}"
             value="${items.value}"
             label="${items.label}"
             style="${styleMap(checkboxStyle)}"
